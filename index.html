@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Identity-Preserving Video Generation Challenge at ICASSP 2027.">
+    <title>Identity-Preserving Video Generation Challenge | ICASSP 2027</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <div class="overlay"></div>
+            <div class="header-content">
+                <h1>IDENTITY-PRESERVING VIDEO GENERATION CHALLENGE</h1>
+                <h3>@ ICASSP 2027</h3>
+            </div>
+        </div>
+    </header>
+
+    <nav id="main-nav" class="sticky" aria-label="Primary navigation">
+        <div class="nav-container">
+            <ul>
+                <li><a href="#overview">Challenge Overview</a></li>
+                <li><a href="#task">Task</a></li>
+                <li><a href="#datasets">Datasets</a></li>
+                <li><a href="#submission">Submission Format</a></li>
+                <li><a href="#evaluation">Evaluation</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Identity-Preserving Video Generation Challenge</h2>
+                    <p class="tagline">Advancing identity-preserving and controllable text-to-video generation</p>
+                    <div class="hero-buttons">
+                        <a href="#overview" class="btn primary-btn">Challenge Overview</a>
+                        <a href="#timeline" class="btn secondary-btn">Important Dates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <section id="overview" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-info-circle" aria-hidden="true"></i> Challenge Overview</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="content-box">
+                    <p>Recent advances in multimodal Artificial Intelligence-Generated Content have transformed digital content creation. Modern text-to-video systems can synthesize visually compelling videos directly from textual prompts, but the appearance of key subjects may still change across frames and scenes. Facial features can drift over time, object attributes can degrade during long sequences, and identity can be lost during complex motion.</p>
+                    <p>The <strong>Identity-Preserving Video Generation (IPVG)</strong> task addresses this limitation by maintaining the consistency of a given reference identity throughout the text-to-video generation process. This capability is important for applications such as personalized avatar animation, historical figure reenactment, and brand-specific content creation, where identity deviations can compromise usability or authenticity.</p>
+                    <p>The challenge brings together the research community around identity-preserving video generation datasets and controllable generative models that support precise identity binding. It contains two tracks:</p>
+                    <div class="challenge-tracks">
+                        <div class="track">
+                            <div class="track-icon"><i class="fas fa-user" aria-hidden="true"></i></div>
+                            <div class="track-title">Facial Identity-Preserving Text-to-Video Generation</div>
+                        </div>
+                        <div class="track">
+                            <div class="track-icon"><i class="fas fa-person-running" aria-hidden="true"></i></div>
+                            <div class="track-title">Sequential Action Identity-Preserving Video Generation</div>
+                        </div>
+                    </div>
+                    <div class="note-box">
+                        <i class="fas fa-flask" aria-hidden="true"></i>
+                        <p>The VIP-200K and ReactID-Data datasets can only be used for research purposes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="task" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks" aria-hidden="true"></i> Task Description</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="content-box">
+                    <p>The challenge focuses on two identity-preserving video generation tasks:</p>
+                    <div class="task-cards">
+                        <div class="task-card">
+                            <div class="task-number">01</div>
+                            <h3>Facial Identity-Preserving Text-to-Video Generation</h3>
+                            <p>Given videos, corresponding prompts, and reference facial identity images, the goal is to learn a video generation model that synthesizes temporally consistent videos. The generated videos must align semantically with the prompts and remain faithful to the identity constraints derived from the reference facial images.</p>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-number">02</div>
+                            <h3>Sequential Action Identity-Preserving Video Generation</h3>
+                            <p>Given reference images and structured timeline prompts containing multiple timestamped sub-actions, the goal is to synthesize videos in which the subject performs the specified sequence while preserving strict visual consistency. The subject may be a full-body human, an animal, or a specific object.</p>
+                        </div>
+                    </div>
+                    <p>Contestants must develop identity-preserving video generation systems using the provided datasets. For evaluation, a system must generate at least one video for every <code>&lt;reference identity, prompt&gt;</code> pair in the corresponding testing set.</p>
+                </div>
+            </section>
+
+            <section id="datasets" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-database" aria-hidden="true"></i> Datasets</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="content-box">
+                    <p>The following datasets are provided for the two challenge tracks:</p>
+
+                    <h3 class="subsection-title">Track 1 — Facial Identity-Preserving Text-to-Video Generation</h3>
+                    <div class="dataset-info">
+                        <div class="dataset-item">
+                            <h4><i class="fas fa-film" aria-hidden="true"></i> Training Dataset</h4>
+                            <p><strong>VIP-200K</strong> contains 500,000 videos. Each video is coupled with a textual prompt and one or more identity images. Each identity is defined by one or more video frames with bounding boxes around the face.</p>
+                            <a class="dataset-link" href="https://huggingface.co/datasets/HiDream-ai/VIP-200K" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-download" aria-hidden="true"></i> Access VIP-200K on Hugging Face
+                            </a>
+                        </div>
+                        <div class="dataset-item">
+                            <h4><i class="fas fa-vial" aria-hidden="true"></i> Testing Dataset</h4>
+                            <p>The testing set contains 200 person identities that are unseen in the training data. Each identity is represented by one or more portrait images and five textual prompts, resulting in 1,000 identity-image and prompt pairs for testing.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-title">Track 2 — Sequential Action Identity-Preserving Video Generation</h3>
+                    <div class="dataset-info">
+                        <div class="dataset-item">
+                            <h4><i class="fas fa-film" aria-hidden="true"></i> Training Dataset</h4>
+                            <p><strong>ReactID-Data</strong> is a large-scale dataset constructed with a high-precision pipeline for reliable subject-to-video correspondence. It contains subject-to-video pairs with timeline annotations describing sub-actions and their timestamps. The data is filtered for aesthetic quality and precise subject alignment.</p>
+                            <a class="dataset-link" href="https://huggingface.co/datasets/HiDream-ai/ReactID-Data" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-download" aria-hidden="true"></i> Access ReactID-Data on Hugging Face
+                            </a>
+                        </div>
+                        <div class="dataset-item">
+                            <h4><i class="fas fa-vial" aria-hidden="true"></i> Testing Dataset</h4>
+                            <p>The testing set contains unseen identities paired with complex multi-action timeline prompts, such as <code>0-2s: [Action A]; 2-5s: [Action B]</code>, to evaluate sequential dynamics and identity preservation simultaneously.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="submission" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-upload" aria-hidden="true"></i> Submission Format</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="content-box">
+                    <p>For each track, each team may submit the results of at most three runs. The team must select one run as its primary run for performance comparison across teams.</p>
+                    <div class="submission-flow">
+                        <div class="submission-step">
+                            <div class="step-header">
+                                <div class="step-number">01</div>
+                                <h4>Submit Up to Three Runs</h4>
+                            </div>
+                            <div class="step-content">
+                                <p>A team may submit no more than three runs for each challenge track.</p>
+                            </div>
+                        </div>
+                        <div class="submission-step">
+                            <div class="step-header">
+                                <div class="step-number">02</div>
+                                <h4>Select the Primary Run</h4>
+                            </div>
+                            <div class="step-content">
+                                <p>One run must be designated as the primary submission. Evaluation of the second and third runs is not guaranteed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="evaluation" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar" aria-hidden="true"></i> Evaluation Metric</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="content-box">
+                    <p>For both tracks, generated videos will be evaluated using a combination of objective metrics and human studies. The evaluation focuses on the following dimensions:</p>
+                    <div class="evaluation-metrics">
+                        <div class="metric">
+                            <div class="metric-number">01</div>
+                            <div class="metric-content">
+                                <h4>Identity Preservation</h4>
+                                <p>Feature similarity between the generated video and the reference identity image, together with manual identity-preservation scores from multiple annotators.</p>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">02</div>
+                            <div class="metric-content">
+                                <h4>Video Quality</h4>
+                                <p>Visual quality, motion dynamics, and text alignment, assessed by objective scoring models and subjective evaluation from multiple annotators.</p>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">03</div>
+                            <div class="metric-content">
+                                <h4>Action-Timeline Alignment <span class="track-label">(Track 2)</span></h4>
+                                <p>Text-to-video alignment and temporal consistency, measuring how accurately generated actions match the timestamps specified by the timeline prompts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>The final score for each submission will be derived from a weighted combination of objective evaluation results and a subjective user study conducted on the testing set.</p>
+                </div>
+            </section>
+
+            <section id="timeline" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar" aria-hidden="true"></i> Timeline</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="content-box">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">August 18, 2026</div>
+                            <div class="timeline-content"><h4>Website Ready</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">September 1, 2026</div>
+                            <div class="timeline-content"><h4>Training and Validation Datasets Available</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">December 9, 2026</div>
+                            <div class="timeline-content"><h4>Testing Set for Each Track Available</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">December 16, 2026</div>
+                            <div class="timeline-content"><h4>Results Submission</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">December 17–21, 2026</div>
+                            <div class="timeline-content"><h4>Objective Evaluation</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">December 22, 2026</div>
+                            <div class="timeline-content"><h4>Evaluation Results Announcement</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 7, 2027</div>
+                            <div class="timeline-content"><h4>Paper Submission Deadline</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 21, 2027</div>
+                            <div class="timeline-content"><h4>Paper Acceptance Notification</h4></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 28, 2027</div>
+                            <div class="timeline-content"><h4>Camera-Ready Papers Due</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:panyw.ustc@gmail.com">panyw.ustc@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ICASSP 2027</p>
+                </div>
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#overview">Challenge Overview</a></li>
+                        <li><a href="#datasets">Datasets</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2027 Identity-Preserving Video Generation Challenge | ICASSP</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
